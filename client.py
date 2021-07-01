@@ -27,10 +27,14 @@ if mA==1:
     inCountry = input("Country: ")
 
     infoSend = [inName, inID, inStNum, inStName, inCity, inPost, inProv, inCountry]
-
     dataSend = pickle.dumps(infoSend)
-#if 2 chosen, Record ID input
 
+#if 2 chosen, Record ID input
+elif mA==2:
+    retid = input("Retrieval ID: ")
+    dataSend = pickle.dumps(retid)
+
+#SOCKET CONNECT and send Data to Server
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
 
     s.connect((HOST, PORT))
