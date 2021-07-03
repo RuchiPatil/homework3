@@ -5,8 +5,19 @@ import pickle
 import yaml
 import re
 import pandas as pd
+import sys
+
+ipform = re.compile(r"\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}")
+serIP = str(sys.argv[1])
+while True:
+    #serIP = input('Server IP xxx.xxx.xxx.xxx: ')
+    if ipform.match(serIP):
+        print("Awesome!\n")
+        break
+    print("Pass a valid server LAN IPv4 address.")
+    sys.exit(0)
 #----------------------------GLOBAL VALUES
-HOST = '127.0.0.1'
+HOST = serIP
 PORT = 65432
 cols = ['Name', 'ID', 'StreetNumber', 'StreetName', 'City', 'Province', 'Country']
 #---------------------------------------------------------------------------------------MENU
