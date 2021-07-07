@@ -1,4 +1,9 @@
 #!/usr/bin/env python3
+
+#<><><><><><><><><><><><><><><><><><><><><><> ABOUT
+# BY : Nolan, Ruchi, Stephane
+# python client (TCP SOCKETS)
+#<><><><><><><><><><><><><><><><><><><><><><> ABOUT
 #------------------------------LIBRARIES
 import socket
 import pickle

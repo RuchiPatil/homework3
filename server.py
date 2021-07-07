@@ -1,4 +1,10 @@
 #!/usr/bin/env python3
+
+#<><><><><><><><><><><><><><><><><><><><><><> ABOUT
+# BY : Nolan, Ruchi, Stephane
+# python server (TCP SOCKETS)
+#<><><><><><><><><><><><><><><><><><><><><><> ABOUT
+
 # ------------------- LIBRARIES
 import socket
 import pickle
@@ -37,7 +43,7 @@ def readCSV(retID, filename):
 #-------------------- GLOBAL VARIABLES
 HOST = '0.0.0.0'
 PORT = 65432
-
+fname = "sock.csv"
 print(f"Listening on port {PORT}, indefinitely. \nTo stop server, close terminal.\n")
 #---------------------------------------------------------------- SOCKET CONNECT
 while True:
@@ -58,13 +64,13 @@ while True:
                 #if data[1]==1 -> write data[0] to csv ---------------- (RECORD WRITE)
                 if data[1]==1:
                     #create File with fields or check if its there
-                    createCSV('plop.csv')
+                    createCSV(fname)
                     #write data[0] to filename
-                    affirm = writeCSV(data[0], 'plop.csv')
+                    affirm = writeCSV(data[0], fname)
                     print(affirm)
                 #else if data[2]==1 -> make id==data[0] query-------------- (RECORD READ)
                 elif data[1]==2:
-                    affirm = str(readCSV(str(data[0]), 'plop.csv'))
+                    affirm = str(readCSV(str(data[0]), fname))
                     #print(f"        data: {data}\ntype of data: {type(data)}")
 
                 #--------------- Send confirmation OR READ_RECORD back to client (bytes)
